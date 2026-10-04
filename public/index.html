@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TypeRace — real-time multiplayer typing races</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>&#9889; TypeRace</h1>
+    <p class="tag">Real-time multiplayer typing races. Fastest fingers win.</p>
+  </header>
+
+  <section id="screen-lobby" class="screen active">
+    <div class="card">
+      <input id="nameInput" maxlength="20" placeholder="Your racer name" autocomplete="off">
+      <button id="findRaceBtn" class="primary">Find Race</button>
+      <p class="hint">You'll be matched with other racers. Same paragraph, live progress, server-side scoring.</p>
+    </div>
+    <h3>&#127942; All-time leaderboard</h3>
+    <ol id="lobbyBoard" class="board"></ol>
+  </section>
+
+  <section id="screen-waiting" class="screen">
+    <div class="card center">
+      <div class="spinner"></div>
+      <p>Finding opponents&hellip; <strong><span id="queueCount">1</span></strong> in queue</p>
+      <button id="cancelBtn" class="ghost">Cancel</button>
+    </div>
+  </section>
+
+  <section id="screen-race" class="screen">
+    <div id="countdown" class="countdown hidden"></div>
+    <div id="raceBody" class="hidden">
+      <div id="tracks"></div>
+      <div id="paragraph" tabindex="0"></div>
+      <div class="liveStats">WPM <strong><span id="myWpm">0</span></strong> &middot; Accuracy <strong><span id="myAcc">100</span>%</strong></div>
+      <p class="hint">Click the text and start typing. Wrong keys must be fixed with backspace.</p>
+    </div>
+  </section>
+
+  <section id="screen-results" class="screen">
+    <div class="card">
+      <h2>Results</h2>
+      <ol id="standings" class="board"></ol>
+      <h3>&#127942; All-time leaderboard</h3>
+      <ol id="finalBoard" class="board"></ol>
+      <button id="againBtn" class="primary">Race Again</button>
+    </div>
+  </section>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/client.js"></script>
+</body>
+</html>

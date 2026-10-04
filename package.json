@@ -1,0 +1,1 @@
+{"dependencies":{"express":"^4.19.2","socket.io":"^4.7.5"},"description":"Real-time multiplayer typing-race game with matchmaking, live leaderboards and server-side scoring","devDependencies":{"socket.io-client":"^4.7.5"},"license":"MIT","main":"server.js","name":"type-race","scripts":{"start":"node server.js","test":"node test/race.sim.js"},"version":"1.0.0"}
